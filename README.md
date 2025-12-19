@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # WyDee Icons
 
 A React icon component library with support for multiple fill and style variants.
@@ -147,3 +148,7 @@ This will compile TypeScript and generate type definitions in the `dist/` direct
 
 MIT
 
+=======
+# WyDeeIcons
+Product Icons by Alex Young-Davies
+>>>>>>> 0ab4c132c5ce9420c75ca2694bc48fc3866d556e
