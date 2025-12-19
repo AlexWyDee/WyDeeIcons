@@ -1,6 +1,6 @@
 # WyDee Icons
 
-Product Icons by Alex Young-Davies
+Product Icons by Alex Young-Davies (www.alexyoungdavies.com)
 
 A React icon component library with support for multiple fill and style variants.
 
