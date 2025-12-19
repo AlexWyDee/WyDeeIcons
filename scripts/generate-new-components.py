@@ -425,11 +425,31 @@ export function {component_name}({{
 '''
     return template
 
+def save_svg_to_repo(component_name, variant_key, svg_string, svgs_dir):
+    """Save SVG file to repo for version control and GitHub as source of truth."""
+    if not svg_string:
+        return None
+    
+    # Ensure svgs_dir exists
+    svgs_dir.mkdir(parents=True, exist_ok=True)
+    component_dir = svgs_dir / component_name
+    component_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Sanitize variant key for filename (replace / with -)
+    safe_variant_key = variant_key.replace('/', '-')
+    svg_file = component_dir / f'{safe_variant_key}.svg'
+    
+    # Save the full SVG (with <svg> tags) to the repo
+    svg_file.write_text(svg_string)
+    return svg_file.relative_to(svgs_dir.parent)
+
 def main():
     script_dir = Path(__file__).parent
     project_root = script_dir.parent
     icons_dir = project_root / 'src' / 'icons'
+    svgs_dir = project_root / 'svgs'  # Directory for storing SVG source files
     icons_dir.mkdir(parents=True, exist_ok=True)
+    svgs_dir.mkdir(parents=True, exist_ok=True)
     
     print("Generating React icon components from Figma...")
     print("=" * 60)
@@ -447,7 +467,13 @@ def main():
             if svg_string:
                 svg_content = extract_svg_content(svg_string)
                 svg_data[variant_key] = svg_content
-                print("✓")
+                
+                # Save SVG file to repo (GitHub as source of truth)
+                saved_path = save_svg_to_repo(component_name, variant_key, svg_string, svgs_dir)
+                if saved_path:
+                    print(f"✓ (saved to {saved_path})")
+                else:
+                    print("✓")
             else:
                 svg_data[variant_key] = ''
                 print("✗ (using placeholder)")
@@ -493,8 +519,10 @@ def main():
     
     print("\n" + "=" * 60)
     print(f"✓ Successfully generated {len(all_components)} icon components!")
+    print(f"✓ SVG source files saved to svgs/ directory (GitHub as source of truth)")
     print("\nNote: If some SVGs failed to fetch, make sure Figma is running")
     print("      and the localhost server is accessible.")
+    print("      SVG files are now stored in the repo for future reference.")
 
 if __name__ == '__main__':
     main()
