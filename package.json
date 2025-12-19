@@ -1,0 +1,31 @@
+{
+  "name": "wydee-icons",
+  "version": "1.0.0",
+  "description": "React icon component library for WyDee Icons",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "extract-svgs": "node scripts/extract-svgs.js"
+  },
+  "keywords": [
+    "react",
+    "icons",
+    "components"
+  ],
+  "author": "AlexWyDee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexWyDee/WyDeeIcons.git"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}
+
