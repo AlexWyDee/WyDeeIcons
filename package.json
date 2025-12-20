@@ -8,9 +8,9 @@
   "scripts": {
     "build": "tsc",
     "extract-svgs": "node scripts/extract-svgs.js",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
+    "storybook": "npx storybook dev -p 6006",
+    "build-storybook": "npx storybook build"
+},
   "keywords": [
     "react",
     "icons",
