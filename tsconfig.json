@@ -1,20 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2019",
+    "lib": ["ES2019", "DOM"],
+    "jsx": "react-jsx",
     "module": "ESNext",
-    "lib": ["ES2020", "DOM"],
-    "jsx": "react",
+    "moduleResolution": "bundler",
     "declaration": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "declarationMap": true,
+    "sourceMap": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "outDir": "dist",
+    "rootDir": "src"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "scripts"]
+  "include": ["src"]
 }
-

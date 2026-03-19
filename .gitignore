@@ -1,31 +1,7 @@
-# Dependencies
 node_modules/
-package-lock.json
-yarn.lock
-
-# Build outputs
 dist/
 *.tsbuildinfo
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Temporary files
-temp_metadata.xml
 *.log
-
-# Environment
 .env
 .env.local
-
-# Storybook
-storybook-static/
-
